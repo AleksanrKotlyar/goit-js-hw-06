@@ -15,9 +15,16 @@ destroyRef.addEventListener('click', onClickBtnDestroyMarkup);
 function onClickToggleGetValue({ currentTarget }) {
   amount = currentTarget.value;
 }
-
+let i = 0;
 function onClickBtnCreateMarkup() {
-  for (let i = 0; i < amount * 10; i += 10) {
+  if (divColl.length > 0) {
+    let i = divColl[divColl.length - 1];
+  }
+
+  console.log(divColl.length);
+  console.log(divColl[divColl.length - 1]);
+  console.log(i);
+  for (; i < amount * 10; i += 10) {
     const divEl = document.createElement('div');
     let widthDefault = 30 + i;
     let heightDefault = 30 + i;
@@ -28,6 +35,8 @@ function onClickBtnCreateMarkup() {
     console.log(divEl);
 
     divColl.push(divEl);
+    console.log(divColl.length - 1);
+    console.log(i);
   }
   boxesRef.append(...divColl);
 }
